@@ -1,0 +1,57 @@
+.toggle {
+  position: relative;
+  width: 60px; /* Ширина переключателя */
+  height: 34px; /* Высота переключателя */
+  display: inline-block;
+  user-select: none; /* Запрещаем выделение */
+}
+
+.toggle > .checkbox {
+  display: none; /* Скрываем браузерный чекбокс */
+}
+
+.toggle > .switch {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: 0.2s; /* Для плавности */
+  cursor: pointer;
+  background-color: #99cdf9; /* Цвет в начальном состоянии */
+}
+
+.toggle > .switch:before {
+  position: absolute;
+  content: "";
+  width: 24px; /* Ширина бегунка */
+  height: 24px; /* Высота бегунка */
+  left: 5px;
+  bottom: 5px;
+  background-color: #fff; /* Цвет бегунка */
+  transition: 0.2s;
+}
+
+/* При состоянии checked - смещаем бегунок вправо */
+.checkbox:checked + .switch:before {
+  transform: translateX(26px);
+}
+
+/* При состоянии checked - меняем цвет фона */
+.checkbox:checked + .switch {
+  background-color: #0081f1;
+}
+
+/* Стили загругленного переключателя */
+.toggle.round > .switch {
+  border-radius: 34px;
+}
+
+/* Делаем бегунок круглым  */
+.toggle.round > .switch:before {
+  border-radius: 50%;
+}
+
+.toggle {
+  margin-right: 10px;
+}
